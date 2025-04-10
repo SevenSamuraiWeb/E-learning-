@@ -21,7 +21,6 @@ const App = () => {
           </div>
         </nav>
 
-        {/* Page Routes */}
         <Suspense fallback={<div className="text-center mt-10">Loading...</div>}>
           <Routes>
             <Route path="/" element={<Landing />} />

@@ -12,7 +12,7 @@ const PinnedAnimationCard = () => {
       </div>
 
        <div className="flex justify-center">
-        <Lottie animationData={animationData} loop={true} className="w-40 h-40 bottom-20" />
+        <Lottie animationData={animationData} loop={true} className="w-40 h-40 bottom-35" />
       </div>
     </div>
   );
