@@ -126,7 +126,7 @@ const Home = () => {
 };
 
 export default Home;
- </div>
+//  </div>
 //         </div>
 //       </div>
 
