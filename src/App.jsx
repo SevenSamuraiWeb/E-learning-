@@ -1,38 +1,38 @@
-import React, { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
-import "./App.css";
+import Home from './pages/home_page.jsx'
+import Landing from './pages/Landing.jsx'
+import Profile from './pages/Profile.jsx'
+import Journeys from './pages/Journeys.jsx'
+import LearningPathway from './pages/Module.jsx'
+import Quiz from './pages/quiz.jsx';
+import ContentPage from  './pages/Content_page.jsx'
+import { Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css'
 
-// Lazy load pages
-const Landing = lazy(() => import("./pages/landing"));
-const Journeys = lazy(() => import("./pages/journeys"));
-const Home = lazy(() => import("./pages/Home"));
-
-const App = () => {
-
+function App() {
   return (
-    <Router>
-      <div className="w-screen min-h-screen bg-white">
-        {/* Navbar */}
-        <nav className="sticky top-0 z-20 bg-white backdrop-filter backdrop-blur-lg shadow-sm">
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="flex items-center justify-between h-16">
-              {/* Logo */}
-            </div>
-          </div>
-        </nav>
-
-        <Suspense fallback={<div className="text-center mt-10">Loading...</div>}>
+    <div className="min-h-screen bg-white">
+      <Router>
+        <Suspense fallback={<div className="flex items-center justify-center min-h-screen text-xl">Loading...</div>}>
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
             <Route path="/journeys" element={<Journeys />} />
-            {/* <Route path="/profile" element={<Profile />} /> */}
-            <Route path="*" element={<div className="text-center text-xl mt-10">404 - Page Not Found</div>} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/module" element={<LearningPathway/>} />
+            <Route path="/quiz" element={<Quiz/>} />
+            <Route path="/content" element={<ContentPage/>}/>
+            <Route path="*" element={
+              <div className="flex items-center justify-center min-h-screen text-xl">
+                404 - Page Not Found
+              </div>
+            } />
           </Routes>
         </Suspense>
-      </div>
-    </Router>
-  );
-};
+      </Router>
+    </div>
+  )
+  
+}
 
-export default App;
+export default App
